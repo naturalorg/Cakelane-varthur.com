@@ -992,6 +992,7 @@ h1, h2, h3, h4 {
     border-radius: 20px;
     overflow: hidden;
     animation: slideUp 0.4s ease-out;
+    max-height: 95vh;
 }
 
 @keyframes slideUp {
@@ -1037,6 +1038,8 @@ h1, h2, h3, h4 {
 .modal-body {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    overflow-y: auto;
+    max-height: 90vh;
 }
 
 .modal-image {
@@ -1562,6 +1565,8 @@ h1, h2, h3, h4 {
         margin: 5% auto;
         max-width: 95%;
         border-radius: 15px;
+        max-height: 90vh;
+        overflow-y: auto;
     }
 
     .modal-close {

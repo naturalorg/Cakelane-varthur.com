@@ -410,11 +410,11 @@ h1, h2, h3, h4 {
     width: 100%;
     height: 500px;
     background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     overflow: hidden;
 }
 
-.image-frame::before {
+.image-frame.placeholder::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -725,12 +725,12 @@ h1, h2, h3, h4 {
     width: 100%;
     height: 500px;
     background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     position: relative;
     overflow: hidden;
 }
 
-.custom-image-frame::before {
+.custom-image-frame.placeholder::before {
     content: '🎨';
     position: absolute;
     top: 50%;
@@ -738,6 +738,76 @@ h1, h2, h3, h4 {
     transform: translate(-50%, -50%);
     font-size: 120px;
     opacity: 0.3;
+}
+
+.section-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-xl);
+}
+
+/* ===== Our Collection Section ===== */
+.our-collection {
+    padding: 6rem 0;
+    background: var(--gray-50);
+}
+
+.collection-categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.category-card {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius-lg);
+    text-align: center;
+    border: 2px solid var(--border-color);
+    transition: var(--transition);
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.category-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.25rem;
+    display: block;
+}
+
+.category-card h3 {
+    font-size: 1.375rem;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.category-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.collection-cta {
+    text-align: center;
+    padding: 2rem;
+    background: var(--accent-light);
+    border-radius: var(--radius-lg);
+}
+
+.collection-cta p {
+    font-size: 1.125rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
 }
 
 /* ===== Contact Section ===== */
@@ -937,25 +1007,30 @@ h1, h2, h3, h4 {
 
 .modal-close {
     position: absolute;
-    top: 20px;
-    right: 25px;
+    top: 15px;
+    right: 20px;
     font-size: 2rem;
     font-weight: 300;
-    color: var(--white);
+    color: var(--text-dark);
     cursor: pointer;
     z-index: 10;
-    width: 40px;
-    height: 40px;
-    background: rgba(0, 0, 0, 0.5);
+    width: 45px;
+    height: 45px;
+    background: var(--white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: var(--transition);
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--border-color);
+    line-height: 1;
 }
 
 .modal-close:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--gray-100);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
     transform: rotate(90deg);
 }
 
@@ -1087,6 +1162,11 @@ h1, h2, h3, h4 {
     .product-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
+    }
+
+    .collection-categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
 
     .modal-image {
@@ -1270,6 +1350,38 @@ h1, h2, h3, h4 {
     .product-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+
+    /* Our Collection */
+    .collection-categories {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .category-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .category-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .category-card h3 {
+        font-size: 1.25rem;
+    }
+
+    .category-card p {
+        font-size: 0.9rem;
+    }
+
+    .collection-cta {
+        padding: 1.5rem;
+    }
+
+    .collection-cta p {
+        font-size: 1rem;
+        margin-bottom: 1.25rem;
     }
 
     .product-card {

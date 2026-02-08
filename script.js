@@ -160,6 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
     categoryCards.forEach(card => {
         card.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
             
             // Get the category from data attribute
             const category = card.getAttribute('data-category');
@@ -184,14 +185,16 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Scroll to products section
             const productsSection = document.getElementById('products');
-            const headerOffset = 100;
-            const elementPosition = productsSection.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            if (productsSection) {
+                const headerOffset = 100;
+                const elementPosition = productsSection.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 });

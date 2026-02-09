@@ -1349,6 +1349,22 @@ h1, h2, h3, h4 {
         display: none;
     }
 
+    /* Filter Buttons */
+    .filter-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        padding: 0 1rem;
+    }
+
+    .filter-btn {
+        flex: 1 1 calc(50% - 0.375rem);
+        min-width: calc(50% - 0.375rem);
+        max-width: calc(50% - 0.375rem);
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+    }
+
     /* Products Section */
     .product-grid {
         grid-template-columns: 1fr;
@@ -1420,13 +1436,16 @@ h1, h2, h3, h4 {
 
     /* Filter Buttons */
     .filter-buttons {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
         padding: 0 1rem;
     }
 
     .filter-btn {
         width: 100%;
-        padding: 0.875rem 1.5rem;
+        padding: 0.875rem 1rem;
+        font-size: 0.875rem;
     }
 
     /* About Section */
